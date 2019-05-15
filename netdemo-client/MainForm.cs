@@ -13,18 +13,17 @@ namespace Client
 {
     public partial class MainForm : Form
     {
-        public MainForm()
-        {
-            InitializeComponent();
-        }
+		public MainForm() {
+			InitializeComponent();
+		}
 
 		void MakeRequest() {
 			HttpClientHandler handler = new HttpClientHandler();
 			HttpClient httpClient = new HttpClient(handler);
-			HttpResponseMessage result;
+			HttpResponseMessage response;
 			try {
-				result = httpClient.GetAsync(textBoxURL.Text).Result;
-				labelMessage.Text = result.Content.ToString();
+				response = httpClient.GetAsync(textBoxURL.Text).Result;
+				labelMessage.Text = response.Content.ReadAsStringAsync().Result;
 			} catch (Exception ex) {
 				labelMessage.Text = ex.Message;
 			}
