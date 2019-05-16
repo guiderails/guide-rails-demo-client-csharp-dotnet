@@ -213,6 +213,16 @@
 						}
 					}
 				},
+				"deployment_files": [
+					{
+						"source_path": "ci/start.ps1",
+						"target_path": "ci/start.ps1"
+					},
+					{
+						"source_path": "ci/stop.ps1",
+						"target_path": "ci/stop.ps1"
+					}
+				],
 				"deployment_strategy": {
 					"canaries": 1,
 					"max_in_flight": 1,
@@ -436,17 +446,30 @@
 				"type": "string"
 			}
 		],
-		"deployment_files": [],
+		"deployment_files": [
+			{
+				"source_path": "ci/start.ps1",
+				"target_path": "ci/start.ps1"
+			},
+			{
+				"source_path": "ci/stop.ps1",
+				"target_path": "ci/stop.ps1"
+			}
+		],
 		"application_init": {
 			"command": "",
 			"arguments": null
 		},
 		"process": {
 			"init": {
-				"command": ""
+				"command": "ci/start.ps1"
 			},
-			"stop": {},
-			"name": ""
+			"stop": {
+				"command": [
+					"ci/stop.ps1"
+				]
+			},
+			"name": "netdemo-client"
 		},
 		"releases": [
 			{
