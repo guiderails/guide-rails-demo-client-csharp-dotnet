@@ -462,14 +462,10 @@
 		},
 		"process": {
 			"init": {
-				"command": "ci/start.ps1"
+				"command": ""
 			},
-			"stop": {
-				"command": [
-					"ci/stop.ps1"
-				]
-			},
-			"name": "netdemo-client"
+			"stop": {},
+			"name": ""
 		},
 		"releases": [
 			{
