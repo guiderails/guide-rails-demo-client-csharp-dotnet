@@ -32,7 +32,7 @@ namespace Client
 		private void MainForm_Load(object sender, EventArgs e) {
 			SharedLib.MathOperations m = new SharedLib.MathOperations();
 			this.FormBorderStyle = FormBorderStyle.FixedSingle;
-			labelMath.Text = "1 + 1 = " + m.Add(1, 1).ToString();
+			labelMath.Text = "From shared library: 1 + 1 = " + m.Add(1, 1).ToString();
 		}
 
 		private void buttonGetMessage_Click(object sender, EventArgs e) {
