@@ -253,7 +253,7 @@
 						],
 						"dependencies": [
 							{
-								"name": "consul",
+								"name": "consul-windows",
 								"release": "consul",
 								"provides": [
 									{
