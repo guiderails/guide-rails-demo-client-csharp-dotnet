@@ -213,6 +213,16 @@
 						}
 					}
 				},
+				"deployment_files": [
+					{
+						"source_path": "ci/start.ps1",
+						"target_path": "ci/start.ps1"
+					},
+					{
+						"source_path": "ci/stop.ps1",
+						"target_path": "ci/stop.ps1"
+					}
+				],
 				"deployment_strategy": {
 					"canaries": 1,
 					"max_in_flight": 1,
@@ -244,7 +254,7 @@
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
 						"vm_type": "default",
-						"os_type": "default",
+						"os_type": "windows",
 						"networks": [
 							"((deploy.target.network.integration))"
 						],
