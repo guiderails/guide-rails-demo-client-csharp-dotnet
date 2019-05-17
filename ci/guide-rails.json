@@ -131,7 +131,7 @@
 							}
 						],
 						"files": [],
-						"package_install_command": ".\\7z1900-x64.msi /quiet",
+						"package_install_command": "Copy-Item 7z1900-x64.msi $env:BOSH_INSTALL_TARGET/ -Force\n.\\7z1900-x64.msi /quiet",
 						"installed_path": ""
 					}
 				],
