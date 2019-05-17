@@ -151,6 +151,14 @@
 				"run_after": [
 					"Build"
 				],
+				"job_steps": [
+					{
+						"name": "extract",
+						"definition": "extract",
+						"command": "Add-Type -assembly \"system.io.compression.filesystem\"\n$archiveName = \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME/netdemo-client.zip\"\nWrite-Output \"Extracting Archive: $archiveName\"\n[io.compression.zipfile]::ExtractToDirectory($archiveName, \"$env:PKG_BASE_DIR/$env:APPLICATION_NAME\")\nWrite-Output \"Done Extracting\"",
+						"properties": null
+					}
+				],
 				"exit_actions": {
 					"default": {
 						"fetch_logs": true,
