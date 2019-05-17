@@ -37,7 +37,20 @@ namespace Client
 
 		private void buttonGetMessage_Click(object sender, EventArgs e) {
 			if (0 < textBoxURL.Text.Length) {
+				textBoxURL.BackColor = Color.White;
 				MakeRequest();
+			} else {
+				textBoxURL.Focus();
+				textBoxURL.BackColor = Color.Pink;
+			}
+		}
+
+		private void textBoxURL_TextChanged(object sender, EventArgs e) {
+			TextBox t = (TextBox)sender;
+			if (t.Text.Length > 0) {
+				t.BackColor = Color.White;
+			} else {
+				t.BackColor = Color.Pink;
 			}
 		}
 	}

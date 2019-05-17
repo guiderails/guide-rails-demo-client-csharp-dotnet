@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.labelURL = new System.Windows.Forms.Label();
 			this.textBoxURL = new System.Windows.Forms.TextBox();
 			this.labelMessage = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@
 			this.textBoxURL.Name = "textBoxURL";
 			this.textBoxURL.Size = new System.Drawing.Size(265, 20);
 			this.textBoxURL.TabIndex = 1;
+			this.textBoxURL.TextChanged += new System.EventHandler(this.textBoxURL_TextChanged);
 			// 
 			// labelMessage
 			// 
@@ -92,6 +94,7 @@
 			this.Controls.Add(this.labelMessage);
 			this.Controls.Add(this.textBoxURL);
 			this.Controls.Add(this.labelURL);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "Get Message";
