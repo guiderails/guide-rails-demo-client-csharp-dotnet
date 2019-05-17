@@ -423,6 +423,11 @@
 				"name": "source_dirs",
 				"value": ".gitignore",
 				"type": "string"
+			},
+			{
+				"name": "additional_properties_file",
+				"value": "local-sonar-project.properties",
+				"type": "string"
 			}
 		],
 		"deployment_files": [],
