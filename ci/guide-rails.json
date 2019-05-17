@@ -172,8 +172,8 @@
 						"properties": null
 					},
 					{
-						"name": "create shortcu",
-						"definition": "create shortcu",
+						"name": "create shortcut",
+						"definition": "create shortcut",
 						"command": "$WshShell = New-Object -comObject WScript.Shell\n$Shortcut = $WshShell.CreateShortcut(\"C:\\Users\\Public\\Desktop\\netdemo-client.lnk\")\n$Shortcut.TargetPath = \"$env:PKG_BASE_DIR\\$env:APPLICATION_NAME\\$env:APPLICATION_NAME.exe\"\n$Shortcut.Save()",
 						"properties": null
 					}
