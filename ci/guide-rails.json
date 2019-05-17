@@ -122,7 +122,7 @@
 						"installed_path": ""
 					},
 					{
-						"name": "7zip",
+						"name": "zip",
 						"dependencies": [],
 						"downloads": [
 							{
@@ -131,7 +131,7 @@
 							}
 						],
 						"files": [],
-						"package_install_command": "7z1900-x64.msi /quiet",
+						"package_install_command": ".\\7z1900-x64.msi /quiet",
 						"installed_path": ""
 					}
 				],
@@ -258,7 +258,7 @@
 				},
 				"package_dependencies": [
 					"((application.name))",
-					"7zip"
+					"zip"
 				],
 				"instance_tags": [
 					{
