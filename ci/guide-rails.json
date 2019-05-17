@@ -122,7 +122,7 @@
 						"installed_path": ""
 					},
 					{
-						"name": "zip",
+						"name": "7zip",
 						"dependencies": [],
 						"downloads": [
 							{
@@ -258,7 +258,7 @@
 				},
 				"package_dependencies": [
 					"((application.name))",
-					"zip"
+					"7zip"
 				],
 				"instance_tags": [
 					{
