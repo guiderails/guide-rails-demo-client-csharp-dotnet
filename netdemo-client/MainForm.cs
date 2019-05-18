@@ -13,18 +13,17 @@ namespace Client
 {
     public partial class MainForm : Form
     {
-        public MainForm()
-        {
-            InitializeComponent();
-        }
+		public MainForm() {
+			InitializeComponent();
+		}
 
 		void MakeRequest() {
 			HttpClientHandler handler = new HttpClientHandler();
 			HttpClient httpClient = new HttpClient(handler);
-			HttpResponseMessage result;
+			HttpResponseMessage response;
 			try {
-				result = httpClient.GetAsync(textBoxURL.Text).Result;
-				labelMessage.Text = result.Content.ToString();
+				response = httpClient.GetAsync(textBoxURL.Text).Result;
+				labelMessage.Text = response.Content.ReadAsStringAsync().Result;
 			} catch (Exception ex) {
 				labelMessage.Text = ex.Message;
 			}
@@ -33,12 +32,25 @@ namespace Client
 		private void MainForm_Load(object sender, EventArgs e) {
 			SharedLib.MathOperations m = new SharedLib.MathOperations();
 			this.FormBorderStyle = FormBorderStyle.FixedSingle;
-			labelMath.Text = "1 + 1 = " + m.Add(1, 1).ToString();
+			labelMath.Text = "From shared library: 1 + 1 = " + m.Add(1, 1).ToString();
 		}
 
 		private void buttonGetMessage_Click(object sender, EventArgs e) {
 			if (0 < textBoxURL.Text.Length) {
+				textBoxURL.BackColor = Color.White;
 				MakeRequest();
+			} else {
+				textBoxURL.Focus();
+				textBoxURL.BackColor = Color.Pink;
+			}
+		}
+
+		private void textBoxURL_TextChanged(object sender, EventArgs e) {
+			TextBox t = (TextBox)sender;
+			if (t.Text.Length > 0) {
+				t.BackColor = Color.White;
+			} else {
+				t.BackColor = Color.Pink;
 			}
 		}
 	}
