@@ -165,15 +165,9 @@
 				],
 				"job_steps": [
 					{
-						"name": "extract",
-						"definition": "extract",
-						"command": "Add-Type -assembly \"system.io.compression.filesystem\"\n$archiveName = \"$env:PKG_BASE_DIR\\$env:APPLICATION_NAME\\netdemo-client.zip\"\nWrite-Output \"Extracting Archive: $archiveName\"\n[io.compression.zipfile]::ExtractToDirectory($archiveName, \"C:\\Program Files\\$env:APPLICATION_NAME\")\nWrite-Output \"Done Extracting\"",
-						"properties": null
-					},
-					{
-						"name": "create shortcut",
-						"definition": "create shortcut",
-						"command": "$WshShell = New-Object -comObject WScript.Shell\n$Shortcut = $WshShell.CreateShortcut(\"C:\\Users\\Public\\Desktop\\netdemo-client.lnk\")\n$Shortcut.TargetPath = \"C:\\Program Files\\$env:APPLICATION_NAME\\$env:APPLICATION_NAME.exe\"\n$Shortcut.Save()",
+						"name": "Install Client",
+						"definition": "Client Installation Procedure",
+						"command": ".\\ci\\install.ps1",
 						"properties": null
 					}
 				],
