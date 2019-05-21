@@ -435,7 +435,7 @@
 			},
 			{
 				"name": "netdemo-server",
-				"version": "latest"
+				"version": "0.0.5-master"
 			}
 		]
 	},
