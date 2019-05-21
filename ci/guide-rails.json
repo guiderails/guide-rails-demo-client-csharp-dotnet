@@ -233,6 +233,12 @@
 						}
 					}
 				},
+				"deployment_files": [
+					{
+						"source_path": "ci\\install.ps1",
+						"target_path": "ci\\install.ps1"
+					}
+				],
 				"deployment_strategy": {
 					"canaries": 1,
 					"max_in_flight": 1,
@@ -410,7 +416,12 @@
 				"type": "string"
 			}
 		],
-		"deployment_files": [],
+		"deployment_files": [
+			{
+				"source_path": "ci\\install.ps1",
+				"target_path": "ci\\install.ps1"
+			}
+		],
 		"application_init": {
 			"command": "",
 			"arguments": null
