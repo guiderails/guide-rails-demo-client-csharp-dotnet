@@ -277,26 +277,21 @@
 						"availability_zones": [
 							"((deploy.target.zone.integration))"
 						],
+						"deployment_strategy": {
+							"canary_watch_time": "",
+							"update_watch_time": "",
+							"serial": false
+						},
 						"dependencies": [
 							{
 								"name": "enable_ssh",
 								"release": "windows-utilities",
-								"properties": [],
-								"deployment_strategy": {
-									"canary_watch_time": "2000-60000",
-									"update_watch_time": "2000-60000",
-									"serial": false
-								}
+								"properties": []
 							},
 							{
 								"name": "enable_rdp",
 								"release": "windows-utilities",
-								"properties": [],
-								"deployment_strategy": {
-									"canary_watch_time": "2000-60000",
-									"update_watch_time": "2000-60000",
-									"serial": false
-								}
+								"properties": []
 							},
 							{
 								"name": "set_password",
@@ -306,12 +301,12 @@
 										"name": "set_password.password",
 										"value": "Int3g2019!"
 									}
-								],
-								"deployment_strategy": {
-									"canary_watch_time": "2000-60000",
-									"update_watch_time": "2000-60000",
-									"serial": false
-								}
+								]
+							},
+							{
+								"name": "netdemo-server-Integration",
+								"release": "netdemo-server",
+								"properties": []
 							}
 						]
 					}
@@ -436,6 +431,10 @@
 		"releases": [
 			{
 				"name": "windows-utilities",
+				"version": "latest"
+			},
+			{
+				"name": "netdemo-server",
 				"version": "latest"
 			}
 		]
