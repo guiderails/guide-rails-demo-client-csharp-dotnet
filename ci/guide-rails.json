@@ -235,8 +235,8 @@
 				},
 				"deployment_files": [
 					{
-						"source_path": "ci\\install.ps1",
-						"target_path": "ci\\install.ps1"
+						"source_path": "ci/install.ps1",
+						"target_path": "ci/install.ps1"
 					}
 				],
 				"deployment_strategy": {
@@ -418,8 +418,8 @@
 		],
 		"deployment_files": [
 			{
-				"source_path": "ci\\install.ps1",
-				"target_path": "ci\\install.ps1"
+				"source_path": "ci/install.ps1",
+				"target_path": "ci/install.ps1"
 			}
 		],
 		"application_init": {
