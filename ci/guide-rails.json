@@ -280,6 +280,16 @@
 						"deployment_strategy": {},
 						"dependencies": [
 							{
+								"name": "bosh-dns-windows",
+								"release": "bosh-dns-windows",
+								"properties": [
+									{
+										"name": "address",
+										"value": "((consul.joinservers))"
+									}
+								]
+							},
+							{
 								"name": "enable_ssh",
 								"release": "windows-utilities",
 								"properties": []
@@ -431,6 +441,10 @@
 			},
 			{
 				"name": "netdemo-server",
+				"version": "latest"
+			},
+			{
+				"name": "bosh-dns-windows",
 				"version": "latest"
 			}
 		]
