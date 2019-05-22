@@ -277,11 +277,7 @@
 						"availability_zones": [
 							"((deploy.target.zone.integration))"
 						],
-						"deployment_strategy": {
-							"canary_watch_time": "",
-							"update_watch_time": "",
-							"serial": false
-						},
+						"deployment_strategy": {},
 						"dependencies": [
 							{
 								"name": "enable_ssh",
@@ -435,7 +431,7 @@
 			},
 			{
 				"name": "netdemo-server",
-				"version": "0.0.5-master"
+				"version": "0.0.27-GX-3509"
 			}
 		]
 	},
