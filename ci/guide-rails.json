@@ -165,15 +165,9 @@
 				],
 				"job_steps": [
 					{
-						"name": "extract",
-						"definition": "extract",
-						"command": "Add-Type -assembly \"system.io.compression.filesystem\"\n$archiveName = \"$env:PKG_BASE_DIR\\$env:APPLICATION_NAME\\netdemo-client.zip\"\nWrite-Output \"Extracting Archive: $archiveName\"\n[io.compression.zipfile]::ExtractToDirectory($archiveName, \"C:\\Program Files\\$env:APPLICATION_NAME\")\nWrite-Output \"Done Extracting\"",
-						"properties": null
-					},
-					{
-						"name": "create shortcut",
-						"definition": "create shortcut",
-						"command": "$WshShell = New-Object -comObject WScript.Shell\n$Shortcut = $WshShell.CreateShortcut(\"C:\\Users\\Public\\Desktop\\netdemo-client.lnk\")\n$Shortcut.TargetPath = \"C:\\Program Files\\$env:APPLICATION_NAME\\$env:APPLICATION_NAME.exe\"\n$Shortcut.Save()",
+						"name": "Install Client",
+						"definition": "Client Installation Procedure",
+						"command": ".\\ci\\install.ps1",
 						"properties": null
 					}
 				],
@@ -239,6 +233,12 @@
 						}
 					}
 				},
+				"deployment_files": [
+					{
+						"source_path": "ci/install.ps1",
+						"target_path": "ci/install.ps1"
+					}
+				],
 				"deployment_strategy": {
 					"canaries": 1,
 					"max_in_flight": 1,
@@ -277,26 +277,27 @@
 						"availability_zones": [
 							"((deploy.target.zone.integration))"
 						],
+						"deployment_strategy": {},
 						"dependencies": [
+							{
+								"name": "bosh-dns-windows",
+								"release": "bosh-dns-windows",
+								"properties": [
+									{
+										"name": "address",
+										"value": "((consul.joinservers))"
+									}
+								]
+							},
 							{
 								"name": "enable_ssh",
 								"release": "windows-utilities",
-								"properties": [],
-								"deployment_strategy": {
-									"canary_watch_time": "2000-60000",
-									"update_watch_time": "2000-60000",
-									"serial": false
-								}
+								"properties": []
 							},
 							{
 								"name": "enable_rdp",
 								"release": "windows-utilities",
-								"properties": [],
-								"deployment_strategy": {
-									"canary_watch_time": "2000-60000",
-									"update_watch_time": "2000-60000",
-									"serial": false
-								}
+								"properties": []
 							},
 							{
 								"name": "set_password",
@@ -306,12 +307,12 @@
 										"name": "set_password.password",
 										"value": "Int3g2019!"
 									}
-								],
-								"deployment_strategy": {
-									"canary_watch_time": "2000-60000",
-									"update_watch_time": "2000-60000",
-									"serial": false
-								}
+								]
+							},
+							{
+								"name": "netdemo-server-Integration",
+								"release": "netdemo-server",
+								"properties": []
 							}
 						]
 					}
@@ -416,7 +417,12 @@
 				"type": "string"
 			}
 		],
-		"deployment_files": [],
+		"deployment_files": [
+			{
+				"source_path": "ci/install.ps1",
+				"target_path": "ci/install.ps1"
+			}
+		],
 		"application_init": {
 			"command": "",
 			"arguments": null
@@ -431,6 +437,14 @@
 		"releases": [
 			{
 				"name": "windows-utilities",
+				"version": "latest"
+			},
+			{
+				"name": "netdemo-server",
+				"version": "latest"
+			},
+			{
+				"name": "bosh-dns-windows",
 				"version": "latest"
 			}
 		]
