@@ -233,6 +233,12 @@
 						}
 					}
 				},
+				"properties": [
+					{
+						"name": "consul.servicename",
+						"value": "((application.name))-((application.branch))-((application.shortsha))"
+					}
+				],
 				"deployment_files": [
 					{
 						"source_path": "ci/install.ps1",
@@ -265,6 +271,83 @@
 					}
 				],
 				"instance_groups": [
+					{
+						"name": "netdemo-server",
+						"number_of_instances": 1,
+						"persistent_disk_type": "",
+						"vm_type": "small",
+						"os_type": "windows",
+						"networks": [
+							"((deploy.target.network.integration))"
+						],
+						"availability_zones": [
+							"((deploy.target.zone.integration))"
+						],
+						"deployment_strategy": {},
+						"dependencies": [
+							{
+								"name": "consul-windows",
+								"release": "consul-windows",
+								"provides": [
+									{
+										"name": "consul_servers.as",
+										"value": "consul_1"
+									}
+								],
+								"consumes": [
+									{
+										"name": "consul_servers.from",
+										"value": "consul_1"
+									}
+								],
+								"properties": [
+									{
+										"name": "consul.servicename",
+										"value": "((consul.servicename))"
+									},
+									{
+										"name": "consul.environment",
+										"value": "((consul.environment))"
+									},
+									{
+										"name": "consul.datacenter",
+										"value": "((consul.datacenter))"
+									},
+									{
+										"name": "consul.server",
+										"value": "false"
+									},
+									{
+										"name": "consul.joinservers",
+										"value": "((consul.joinservers))"
+									},
+									{
+										"name": "calculi.intermediate.cert",
+										"value": "grsecret:tls.cert"
+									},
+									{
+										"name": "calculi.intermediate.key",
+										"value": "grsecret:tls.key"
+									}
+								]
+							},
+							{
+								"name": "bosh-dns-windows",
+								"release": "bosh-dns-windows",
+								"properties": [
+									{
+										"name": "address",
+										"value": "((consul.joinservers))"
+									}
+								]
+							},
+							{
+								"name": "netdemo-server",
+								"release": "netdemo-server",
+								"properties": []
+							}
+						]
+					},
 					{
 						"name": "((application.name))",
 						"number_of_instances": 1,
@@ -308,11 +391,6 @@
 										"value": "Int3g2019!"
 									}
 								]
-							},
-							{
-								"name": "netdemo-server-Integration",
-								"release": "netdemo-server",
-								"properties": []
 							}
 						]
 					}
@@ -445,6 +523,10 @@
 			},
 			{
 				"name": "bosh-dns-windows",
+				"version": "latest"
+			},
+			{
+				"name": "consul-windows",
 				"version": "latest"
 			}
 		]
