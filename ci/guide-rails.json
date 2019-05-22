@@ -431,7 +431,7 @@
 			},
 			{
 				"name": "netdemo-server",
-				"version": "0.0.27-GX-3509"
+				"version": "latest"
 			}
 		]
 	},
