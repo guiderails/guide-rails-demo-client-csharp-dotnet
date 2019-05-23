@@ -275,7 +275,7 @@
 						"name": "netdemo-server",
 						"number_of_instances": 1,
 						"persistent_disk_type": "",
-						"vm_type": "small",
+						"vm_type": "medium",
 						"os_type": "windows",
 						"networks": [
 							"((deploy.target.network.integration))"
