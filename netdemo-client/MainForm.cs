@@ -36,6 +36,7 @@ namespace Client
 		}
 
 		private void buttonGetMessage_Click(object sender, EventArgs e) {
+			labelMessage.Text = "";
 			if (0 < textBoxURL.Text.Length) {
 				textBoxURL.BackColor = Color.White;
 				MakeRequest();
