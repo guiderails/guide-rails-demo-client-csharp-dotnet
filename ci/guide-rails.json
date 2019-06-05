@@ -371,26 +371,6 @@
 										"value": "((consul.joinservers))"
 									}
 								]
-							},
-							{
-								"name": "enable_ssh",
-								"release": "windows-utilities",
-								"properties": []
-							},
-							{
-								"name": "enable_rdp",
-								"release": "windows-utilities",
-								"properties": []
-							},
-							{
-								"name": "set_password",
-								"release": "windows-utilities",
-								"properties": [
-									{
-										"name": "set_password.password",
-										"value": "Int3g2019!"
-									}
-								]
 							}
 						]
 					}
@@ -513,10 +493,6 @@
 			"name": ""
 		},
 		"releases": [
-			{
-				"name": "windows-utilities",
-				"version": "latest"
-			},
 			{
 				"name": "netdemo-server",
 				"version": "latest"
