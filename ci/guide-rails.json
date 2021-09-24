@@ -248,7 +248,7 @@
 						"number_of_instances": 1,
 						"cloud_provider_type": "aws",
 						"cloud_provider_name": "guide-rails",
-						"vm_type": "medium",
+						"vm_type": "windows-small",
 						"os_type": "windows2012R2",
 						"networks": [
 							"integration"
@@ -320,7 +320,7 @@
 						"name": "((application.name))",
 						"number_of_instances": 1,
 						"cloud_provider_type": "aws",
-						"vm_type": "small",
+						"vm_type": "windows-small",
 						"os_type": "windows2012R2",
 						"networks": [
 							"integration"
